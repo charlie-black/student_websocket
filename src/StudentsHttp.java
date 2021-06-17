@@ -12,10 +12,10 @@ public class StudentsHttp implements HttpHandler {
         handleResponse(httpExchange);// method
     }
     private void handleResponse(HttpExchange httpExchange){
-        StudentsDbConnection l15 = new StudentsDbConnection();
-        l15.DbConnect();
-        String resp = l15.getStudentsInfo();//method
-        l15.close();
+        StudentsDbConnection dbConnection = new StudentsDbConnection();
+        dbConnection.DbConnect();
+        String resp = dbConnection.getStudentsInfo();//method
+        dbConnection.close();
 
         try {
             OutputStream outputStream = httpExchange.getResponseBody();
